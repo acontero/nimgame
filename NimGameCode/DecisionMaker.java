@@ -7,18 +7,14 @@ public class DecisionMaker {
 	}
 	
 	public Gameboard chooseMove(int[] muffins, Gameboard root){
-		System.out.println("Muffins State Check: ");
-		printBoard(muffins);
 		//goal is to make next state a losing state (so we want to make all columns 0 in the XOR function
 		Gameboard result = new Gameboard();
 		int[] testArray = new int[3];
-		testArray = muffins;
+		testArray = resetArray(muffins);
 		
 		for(int i = 0; i<3; i++){ //consider each stack separately
-			System.out.println("Muffins State Check: ");
-			printBoard(muffins); //should be same always in this fxn
 			System.out.println("Checking col " + i);
-			testArray = muffins;
+			testArray = resetArray(muffins);
 			printBoard(testArray);
 			
 			for(int j = testArray[i]; j>0; j--){
@@ -35,6 +31,14 @@ public class DecisionMaker {
 		return result;
 	}
 	
+	public int[] resetArray(int[] muffins) {
+		int[] array = new int[3];
+		for(int i = 0; i<3; i++){
+			array[i] = muffins[i];
+		}
+		return array;
+	}
+
 	public static boolean isItAWinningState(int[] muffins){
 		//If value of operator is greater than 0
 		if( (muffins[0]^muffins[1]^muffins[2]) > 0){
