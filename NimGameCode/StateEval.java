@@ -1,10 +1,9 @@
-
 public class StateEval {
 	/**
 	 * Function isItAWinningState is used for the Nim game with 3 stacks of n items. Each stack has n items, it could be unique
 	 * or it can also be different
 	 *   
-	 *  Each parameter is an integer that represetns the number of items on each stack
+	 *  Each parameter is an integer that represents the number of items on each stack
 	 *  If the stack is empty then we pass in a 0
 	 *  
 	 *  The function calculates the xor value using the ^ operator which returns a decimal value
