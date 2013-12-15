@@ -20,9 +20,7 @@ public class Nim {
 	static String[][] board;
 	static Scanner scan;
 
-	/**
-	 * @param args
-	 */
+	
 	public static void main(String[] args) {
 
 		buildGame();
@@ -39,7 +37,7 @@ public class Nim {
 			if (victory("Player 1"))
 				break;
 			playerTwo();
-			if (victory("Player 2"))
+			if (victory("Monkey"))
 				break;
 		}
 
@@ -80,7 +78,7 @@ public class Nim {
 			System.out.println("is winningState so using decision maker");
 			DecisionMaker d = new DecisionMaker();
 			Gameboard move = new Gameboard();
-			move = d.chooseMove(muffins, move);
+			move = d.chooseMoveMethod1(muffins, move);
 			muffins = move.currentMuffins; //this represents the monkey's turn
 			System.out.println("board state is winning state = " + move.winningState);
 		}
@@ -124,7 +122,8 @@ public class Nim {
 
 	public static void printIntro() {
 		System.out.println("Nim, version 1.0");
-		System.out.println(" Written by Jonathan Wong, Angelica Contero, and Steven Jimenez!\n");
+		System.out.println(" Written by Jonathan Wong, Angelica Contero, and Steven Jimenez!");
+		System.out.println(" Strategy #1\n");
 	} // printIntro
 
 	public static void buildGame() {
